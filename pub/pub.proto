@@ -4,6 +4,20 @@ syntax = "proto3";
  option go_package = "./;pub";
 import "google/protobuf/empty.proto";
 
+message Customer {
+
+ int64 id=1;
+ string createdat=2;
+ string updatedat=3;
+ string deletedat=4;
+ string address=5;
+ int64 age=6;
+ string contact=7;
+ string email=8;
+ string name=9;
+ string nationality=10;
+ string nic=11;
+ }
 
 service Service{
 
