@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+ package pub;
+ option go_package = "./;pub";
+import "google/protobuf/empty.proto";
+
+
+service Service{
+
+ }
