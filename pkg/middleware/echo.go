@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	echoswagger "github.com/swaggo/echo-swagger"
 	"testproject/pkg/env"
 	"github.com/labstack/echo/v4"
+	echoswagger "github.com/swaggo/echo-swagger"
 )
 
 func ConfigEchoNode(e *echo.Echo) string{
