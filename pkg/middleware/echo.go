@@ -1,9 +1,10 @@
 package middleware
 
 import (
+	echoswagger "github.com/swaggo/echo-swagger"
+	"testproject/pkg/controller_echo"
 	"testproject/pkg/env"
 	"github.com/labstack/echo/v4"
-	echoswagger "github.com/swaggo/echo-swagger"
 )
 
 func ConfigEchoNode(e *echo.Echo) string{
@@ -30,6 +31,8 @@ func ConfigEchoNode(e *echo.Echo) string{
          
 	func FN_Default(g *echo.Group) {
 
+		g.POST("/api/add", controller_echo.AddCustomer)
+		g.GET("/api/getall", controller_echo.GetCustomer)
 		g.GET("/api/swagger/*any", echoswagger.WrapHandler)
 	}
    
