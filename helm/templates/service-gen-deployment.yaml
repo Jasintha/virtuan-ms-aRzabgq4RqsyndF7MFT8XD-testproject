@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testproject
+  labels:
+    app: testproject
+spec:
+  selector:
+    matchLabels:
+      app: testproject
+  template:
+    metadata:
+      labels:
+        app: testproject
+    spec:
+      containers:
+       - name: testproject
+         image:  virtuan/testproject
+         imagePullPolicy: Always
+         env:
+        
+          - name: DEFAULT_DB
+          value: ""
+        
+          - name: DEFAULT_DIALET
+          value: ""
+        
+          - name: DEFAULT_HOST
+          value: ""
+        
+          - name: DEFAULT_PORT
+          value: ""
+        
+          - name: DEFAULT_PWD
+          value: ""
+        
+          - name: DEFAULT_URL
+          value: ""
+        
+          - name: DEFAULT_USER
+          value: ""
+        
+          - name: GRPC_PORT
+          value: ""
+        
+          - name: REST_PORT
+          value: ""
+        
+         ports:
+          - containerPort: 8080
+      imagePullSecrets:
+          - name: virtuanregsecrets

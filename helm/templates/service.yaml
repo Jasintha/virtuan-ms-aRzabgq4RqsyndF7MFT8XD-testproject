@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: testprojectsrv
+  labels:
+    app: testprojectsrv
+    service: testprojectsrv
+spec:
+  ports:
+   - port: 9082
+     name: http
+     targetPort: 8080
+  selector:
+    app: testproject
