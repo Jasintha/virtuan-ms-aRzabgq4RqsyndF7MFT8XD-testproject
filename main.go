@@ -13,13 +13,6 @@ import (
 	"testproject/pkg/middleware"
 )
 import (
-	"log"
-	"net"
-	"testproject/pkg/controller"
-	"testproject/pkg/xiLogger"
-	"testproject/pub"
-)
-import (
 	"flag"
 	"github.com/golang/glog"
 	"github.com/labstack/echo/v4"
@@ -35,7 +28,6 @@ func main() {
 	trfmain.TRF_Main(&cntxt, config)
 
 	RunProxy()
-	RunServer()
 }
 
 func RunProxy() {
@@ -48,20 +40,4 @@ func run() {
 	e := echo.New()
 	port := middleware.ConfigEchoNode(e)
 	e.Logger.Fatal(e.Start(":" + port))
-}
-
-func RunServer() {
-	port := middleware.GetGrpcPort()
-	lis, err := net.Listen("tcp", ":"+port)
-	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
-	}
-	s := middleware.GetGrpcServerConfigs()
-
-	xiLogger.Log.Info("\n Server listening on port %v \n", ":"+port)
-	pub.RegisterServiceServer(s, &controller.Server{})
-	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
-	}
-
 }

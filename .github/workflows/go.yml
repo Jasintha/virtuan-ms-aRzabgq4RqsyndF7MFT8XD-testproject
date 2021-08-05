@@ -13,7 +13,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: ${{ secrets.DOCKER_USERNAME }}/testproject
-          tags: v7Azyvt6DJgY9FYsmWNGBQ7
+          tags: v3cFEEBiAmjrvzeKTWKJpRd
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
