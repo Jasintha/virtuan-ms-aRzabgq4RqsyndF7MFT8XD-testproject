@@ -13,12 +13,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: ${{ secrets.DOCKER_USERNAME }}/testproject
-          tags: v3cFEEBiAmjrvzeKTWKJpRd
+          tags: vtt23MLVC7bVtXrGH7wNBXb
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: swagger API generate
-      run: |
-                go get -u github.com/swaggo/swag/cmd/swag
-                swag init
